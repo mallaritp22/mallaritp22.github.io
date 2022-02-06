@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GP Shuttle Rides</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
+<script type="text/javascript" src="databasescript.js">
+	</script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="utf-8">
+		<link rel="icon" href="https://www.logolynx.com/images/logolynx/93/9312a1df88375cac1bca083385362d88.jpeg">
+
+</head>
+<body>
+	 <div class="container">
+      <fieldset id="riderdriverDisplay" class="answer_list">
+          <p> You are listed as a rider and driver. Which function would you like to choose?</p>
+		  <button class="button" id="riderButton" onClick="riderFunction()">Rider</button>
+          <button class="button" id="driverButton" onClick="driverFunction()">Driver</button>
+	  </fieldset>
+	  </div>
+	  
+     <script>  
+	  var queryString = location.search.substring(1);
+	  
+      function submitFunction(clicked_id) {
+        var idinput = document.getElementById("idInput").value;
+        if (idinput==="") {
+          document.getElementById('idWarning').style.display="block";
+        }
+        else {
+          document.getElementById('riderdriverDisplay').style.display="block";
+        }
+      }
+
+      function riderFunction() {
+        location.href ="RiderMenu.html?" + queryString;
+      }
+      function driverFunction() {
+		location.href="driveaction.php?" + queryString;
+      }
+    </script>
+  </div>
+</body>
+</html>

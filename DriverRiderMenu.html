@@ -1,0 +1,73 @@
+<!--HR: We used a big part of the following code on this website for learning to implement a google map in our webpage https://developers.google.com/maps/documentation/javascript/adding-a-google-map
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>GP Shuttle Rides</title>
+	<script type="text/javascript" src="scripts.js">
+	</script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<h2>Welcome Cadet</h2>
+
+  <head>
+    <title>Add Map</title>
+
+    <style type="text/css">
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 250px;
+        /* The height is 400 pixels */
+        width: 250px;
+        /* The width is the width of the web page */
+      }
+    </style>
+    <script>
+	  var queryString = location.search.substring(1);
+	  document.write(queryString);
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        const uluru = { lat: -25.344, lng: 131.036 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+
+
+  <p>View/Edit/Delete Rides</p>
+  <button id="rideactionButton" onClick="rideactionFunction()">
+    Submit
+  </button>
+
+
+<script>
+  function rideactionFunction() {
+    location.href="RiderAction.html?" + queryString;
+  }
+</script>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>GP Shuttle Rides</title>
+	<script type="text/javascript" src="scripts.js">
+	</script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+</head>
+
+<body>
+  <h4>Rides: </h4>
+  <ul> </ul>
+<div id="welcomeDiv"  style="display:none;" class="answer_list" > WELCOME</div>
+
+  <p id="noselectionWarning" style="display:none;">Please select a ride to mark as complete or delete.</p>
+
+  <div> 
+      <button onclick="completeFunction()">Complete</button>
+      <button onclick="deleteFunction()">Delete</button>
+  </div>
+  <p> </p>
+  <button onclick="returnFunction()">Return to Log In Page</button>
+ 
+<!--Script below extracts rides from database, and displays them for selection by user. If there are no rides, it displays no rides. -->
+  <script>
+  var queryString = location.search.substring(1);
+	  
+  var rides = ["Tomato", "Cheese", "Pepperoni", 
+                  "Olives", "Jalapenos", "Pineapple", "Ham"];
+  var ul = document.querySelector("ul");
+  for (var i = 0; i < rides.length; i++) {
+    var ride = rides[i];
+    var listItem = document.createElement("label");
+    listItem.textContent = ride;
+
+    var checkBox = document.createElement("input");
+    checkBox.type = "radio";
+    checkBox.name = "radiobutton";
+    checkBox.id = i;
+
+    var li = document.createElement("li");
+    li.appendChild(checkBox);
+    li.appendChild(listItem);
+    ul.appendChild(li);
+
+
+  }
+
+    if(document.getElementById('radiobuttonid').checked) {
+      var selectLabel = document.createElement("label");
+      selectedLabel.textContent = "selected";
+      ul.appendChild(selectedLabel);
+    }
+  
+
+  function completeFunction() {
+    var done = 0;
+    for (var i = 0; i < rides.length; i++) {
+      if(document.getElementById(i).checked) {
+        alert("Ride completed.");
+        done = 1;
+        document.getElementById("noselectionWarning").style.display = "none"; 
+      }
+      else {
+        if (done == 0) {
+        document.getElementById("noselectionWarning").style.display = "block"; 
+        }
+      }
+    }
+  }
+  function deleteFunction() {
+    var done = 0;
+    for (var i = 0; i < rides.length; i++) {
+      if(document.getElementById(i).checked) {
+        alert("Ride deleted.");
+        done = 1;
+        document.getElementById("noselectionWarning").style.display = "none"; 
+      }
+      else {
+        if (done == 0) {
+        document.getElementById("noselectionWarning").style.display = "block"; 
+        }
+      }
+    }
+  }
+  function returnFunction() {
+    location = "index.html?" + queryString;
+  }
+  </script>
+</body>
+
+</html>

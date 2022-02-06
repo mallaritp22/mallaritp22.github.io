@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GP Shuttle Rides</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="utf-8">
+	<link rel="icon" href="https://www.logolynx.com/images/logolynx/93/9312a1df88375cac1bca083385362d88.jpeg">
+
+</head>
+<body>
+  <div class="container">
+    <h1> GP Shuttle Rides App </h1>
+	  
+	  <form action="connect.php" method="post">
+	  <h2> Cadet ID: </h2>
+      <input type="text" id="id" name="id"required></input>
+	  <br></br>
+      <button class="button" id="submitButton" onClick="submitFunction()">Submit</button>
+	</form>
+     <script>  
+      function submitFunction(clicked_id) {
+        var idinput = document.getElementById("idInput").value;
+        if (idinput==="") {
+          document.getElementById('idWarning').style.display="block";
+        }
+        else {
+			sessionStorage.setItem("id", idinput);
+        }
+      }
+
+      function riderFunction() {
+        location.href ="RiderMenu.html";
+      }
+      function driverFunction() {
+        location.href ="DriverMenu.html";
+      }
+    </script>
+  </div>
+</body>
+</html>

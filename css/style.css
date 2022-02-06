@@ -1,0 +1,44 @@
+h1{
+  font:small-caps 28px "Arial", sans-serif ; padding-top:8px; height:25px; color: black;  
+}
+
+h2{
+  font:small-caps 18px "Arial", sans-serif ; padding-top:8px; height:25px; color: black;  
+}
+
+body{
+  align-items: center;
+  background-color: #C87522;
+  font-family: arial,helvetica,sans-serif;
+  line-height: 2em;
+  margin: auto;
+}
+
+.container{
+  margin: auto;
+  width: 60%;
+  border: 8px solid #DFA060;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+.container2{
+  margin: auto;
+  width: 80%;
+  border: 8px solid #ECBD8F;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+.button {
+	border-color: #DFA060;
+    background-color: #ECBD8F;
+    color: black;
+	width: 120px;
+    font-weight: bold;
+	
+}
+
+#idWarning{
+  color: red
+}
